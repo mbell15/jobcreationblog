@@ -1,10 +1,14 @@
 pages:
- script:
- — mkdir .public
- — cp -r * .public
- — mv .public public
- artifacts:
+  stage: deploy
+  script:
+    - mkdir .public
+    - cp -r README* .public
+    - cp -r index.html .public
+    - cp Selection* .public
+    - cp -r archive .public
+    - mv .public public
+  artifacts:
     paths:
-    — public
- only:
- — master
+      - public
+  only:
+    - master
